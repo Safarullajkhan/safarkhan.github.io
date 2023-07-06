@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body style='overflow-x: hidden;  background-image:url("{% static 'images/Clean.png' %}");' height="100%">
+    <div class="row">
+        <div class="col-sm-2 " style="background-color:rgb(33,33,33); display: flex;flex-grow:1 ;">
+        <img src="{% static 'images/KarKiraaya.png' %}" height='50px' class="pull-left" alt="logo">
+      </div>
+      <div class="navbar-expand-lg justify-content-end col-sm-10" style="background-color:rgb(33,33,33) ; display: flex;flex-grow:1 ;">
+        <div class="nav me-5 justify-content-end " >
+           
+              <a href="/" class="btn" style="color: aliceblue;" >Home</a>
+              <a href="/cars" class="btn" style="color: aliceblue;" >Rent A Car</a>
+                <a href="register" class="btn" style="color: aliceblue;">SignUp</a>
+            </div>
+        </div>
+    <div class="login-wrap mt-5">
+        <div class="login-html">
+
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab">Forgot Password</label>
+            <div class="login-form">
+                <form action="/dlog/{{id.id}}" method="post">
+                    {% csrf_token %}
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        {% if dat %}
+                        <input id="user" name="user" type="text" class="input" value="{{dat.usr}}">
+                        
+                    </div>
+                    <div class="group">
+                        <label for="passw" class="label">Password</label>
+                        <input id="passw" name="passw" type="password" class="input" data-type="password" value="{{dat.pss}}">
+                        {% else %}
+                        <input id="user" name="user" type="text" class="input">
+                        
+                    </div>
+                    <div class="group">
+                        <label for="passw" class="label">Password</label>
+                        <input id="passw" name="passw" type="password" class="input" data-type="password">
+                        {% endif %}
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign In">
+                        
+                    </div>
+                    {% if messages %}
+                    {% for mssage in messages %}
+                    <p class="text-danger">
+                        <br>
+                    {{ mssage }}
+                    </p>
+                    {% endfor %}
+                    {% endif %}
+                    <div class="hr"></div>
+                    <div class="group">
+                        <a href="/register" class="text-light">New User | Register</a>
+                    </div>
+                </div>
+            </form>
+                <div class="for-pwd-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username or Email</label>
+                        <input id="user" type="text" class="input">
+                    
+                    </div>
+                   
+
+                    <div class="group">
+                        <input type="submit" class="button" value="Reset Password">
+                    </div>
+                    <div class="hr"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

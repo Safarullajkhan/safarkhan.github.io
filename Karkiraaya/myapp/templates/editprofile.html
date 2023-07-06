@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block logs %}
+    <li><a href="/profile" class="btn" style="color: aliceblue;">Profile</a></li>
+
+    {% endblock %}
+    {% block index %}
+    <form action="" method="post" class="form-control">
+        {% csrf_token %}
+        <table class="table">
+            
+            <th>First Name</th>
+            <td><input type="text" name="fnam" value="{{ usr.first_name }}"></td>
+            <th>Last Name</th>
+            <td><input type="text" name="lnam" value="{{ usr.last_name }}"></td>
+            <th>Email</th>
+            <td><input type="text" name="mail" value="{{ usr.email }}"></td>
+            <th>Phone</th>
+            <td><input type="text" name="phone" value="{{ usr.phone }}"></td>
+        </table>
+        <input type="submit" name="" id="" class="btn btn-primary" value="Update">
+    </form>
+
+
+
+
+    {% endblock %}
+
+    
+</body>
+</html>

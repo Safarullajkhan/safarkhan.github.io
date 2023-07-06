@@ -1,0 +1,119 @@
+{% extends 'base1.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+   
+    {% block logs %}
+          <a href="/orders" class="btn" style="color: aliceblue;" >Order Details</a>
+          <li><a href="/profile" class="btn" style="color: aliceblue;">Profile</a></li>
+          <li><a href="/logout" class="btn" style="color: aliceblue;" >Sign Out</a></li>
+          <li><a href="" class="btn" style="color: aliceblue;">{{ usr.first_name }}</a></li>
+
+    {% endblock %}
+    {% block index %}
+<body style="background-color: black;color: aliceblue; overflow-x: hidden;">
+  {% if messages %}
+  {% for mssage in messages %}
+  <p class="text-success" style="font-size: x-large;position: relative;left: 40px;top: 15px;">
+      <br>
+  {{ mssage }}
+  </p>
+  {% endfor %}
+  {% endif %}
+
+    <header>
+      <h1 class="" style="font-size: 60px;font-weight: bolder;background-image: url(https://i.postimg.cc/C5kjTZzV/glowing-blue-neon-particles-3d-illustration-free-video.jpg);
+      background-size:350px 105px;background-repeat: no-repeat;background-clip: text;-webkit-background-clip: text;color: transparent;position: relative;left: 40%;" >Kar Kiraaya</h1>
+      <h2 class="" style="font-size: 40px;background-image: url(https://i.postimg.cc/C5kjTZzV/glowing-blue-neon-particles-3d-illustration-free-video.jpg);background-repeat: no-repeat;background-size: 500px 75px;
+      background-clip: text;-webkit-background-clip: text;color: transparent;position: relative;left: 38%;">Explore. Drive. Enjoy.</h2>
+      </header>
+      
+      <div id="carouselExampleIntervel" class="carousel slide container" data-bs-ride="carousel" data-bs-slide="next">
+        <div class="carousel-inner">
+          <div class="carousel-item active " data-bs-interval="3000">
+            <img src="{% static 'images/1688018664.jpg' %}" class="d-block w-100" alt="..." height="85%" width="50%">
+          </div>
+          <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'images/1687407889181.jpg' %}" class="d-block w-100" alt="..." height="85%" width="70%">
+          </div>
+          <div class="carousel-item" data-bs-interval="3000">
+            <img src="{% static 'images/1688018664.jpg' %}" class="d-block w-100" alt="..."height="85%" width="70%">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <main>
+        <section class="hero" id="about">
+          <h3>Rent the Perfect Car for Your Journey</h3>
+          <p>Whether you're planning a road trip, heading out for a weekend getaway, or simply need a temporary set of wheels, CarRent+ has you covered. With a wide selection of vehicles and flexible rental options, we make it easy for you to find and rent the perfect car for your needs.</p>
+        </section>
+
+      <h1>
+      </h1>
+
+        <section class="features">
+          <div class="feature">
+            <h4>Extensive Fleet</h4>
+            <p>We offer a diverse range of vehicles to suit every taste and requirement. From compact cars for city commuting to spacious SUVs for family adventures, we have it all.</p>
+          </div>
+    
+          <div class="feature">
+            <h4>Competitive Rates</h4>
+            <p>We strive to provide affordable prices without compromising on quality. Our transparent pricing and flexible rental packages ensure you get the best value for your money.</p>
+          </div>
+    
+          <div class="feature">
+            <h4>Convenient Locations</h4>
+            <p>With multiple pickup and drop-off locations across the city, finding a convenient spot to collect or return your rental car is hassle-free.</p>
+          </div>
+    
+          <div class="feature">
+            <h4>Easy Booking Process</h4>
+            <p>Our user-friendly online platform allows you to browse, select, and book your preferred car in just a few clicks. No lengthy paperwork or queues involved!</p>
+          </div>
+    
+          <div class="feature">
+            <h4>Exceptional Customer Service</h4>
+            <p>Our dedicated team of customer service representatives is available 24/7 to assist you with any inquiries or support you may need during your rental experience.</p>
+          </div>
+        </section>
+    
+        <section class="how-it-works">
+          <h3>How It Works</h3>
+          <ol>
+            <li>Search and Select</li>
+            <li>Choose Extras</li>
+            <li>Book Online</li>
+            <li>Pick Up and Go</li>
+            <li>Enjoy the Ride</li>
+            <li>Return with Ease</li>
+          </ol>
+        </section>
+    
+        <section class="start-journey">
+          <h3>Start Your Journey Today</h3>
+          <p>Begin your car rental experience with CarRent+ and unlock a world of possibilities. Discover new horizons, create unforgettable memories, and enjoy the convenience of having a reliable car at your fingertips.</p>
+          <a href="/cars" class="button">Reserve Now</a> <!-- Link to your reservation page -->
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2023 CarRent+. All rights reserved.</p>
+      </footer>
+      
+{% endblock %}
+    
+</body>
+</html>

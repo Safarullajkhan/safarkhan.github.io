@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ usr.first_name }}</title>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+    
+</head>
+<body style="margin: 0;">
+    <nav class="navbar-expand-lg nav " style="background-color:rgba(59, 57, 59, 0.404);">
+        
+      
+            <ul class=" pull-right" style="list-style: none;display: inline-block;list-style-type:decimal;position: relative;left: -50px;">
+                <li  style="display: inline-block;list-style-type: decimal;"><a href="/" class="btn" style="color: black;font-size: medium;color: aliceblue;">Home</a></li>
+                <li style="display: inline-block;list-style-type: decimal;"><a href="/orders" class="btn" style="color: aliceblue;" >Order Details</a></li>
+
+            </ul>
+    
+    </nav>
+    <div class="container">
+      <div class="main-body">
+      
+            <div class="row gutters-sm">
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <h4>{{ usr.first_name }} {{ usr.last_name }}</h4>
+                      </div>
+                      {% if messages %}
+                      {% for i in messages %}
+
+                      <div class="mt-3 text-success" >
+                        <h4>{{ i }}</h4>
+                      </div>
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Full Name</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ usr.first_name }} {{ usr.last_name }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Username</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ usr.username }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Email</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        {{ usr.email }}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h6 class="mb-0">Phone</h6>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                       {% if usr.phone %}
+                       {{ usr.phone }}
+                       {% else %}
+                       Not Added
+                       {% endif %}
+                      </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <a class="btn btn-info" href="/editprofile">Edit</a>
+                        <a class="btn btn-info pull-right" href="/changepass">change password</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+      </div>
+
+
+</body>
+</html>

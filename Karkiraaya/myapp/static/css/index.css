@@ -1,0 +1,9 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+  }
+  
+
+nav a {
+    justify-items: end;
+}

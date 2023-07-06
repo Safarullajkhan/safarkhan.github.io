@@ -1,0 +1,31 @@
+{% extends 'base1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block about %}
+{% endblock %}
+{% block logs %}
+<a href="" class="btn" style="color: aliceblue;">{{ usr.first_name }}</a>
+{% endblock %}
+{% block index %}
+<body style="background-color: black;color: aliceblue;">
+    <div class="row">
+        {% for i in form %}
+        <div class="card-md m-5 " style="width: 18rem; border:none;">
+          <img src="{{ i.c_img.url }}" class="card-img-top p-1" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{i.c_name}}</h5>
+            <p class="card-text">{{i.c_details}}</p>
+            <p>Price : {{ i.c_price }}</p>
+          </div>
+          <a href="/booknow/{{i.id}}" class="btn btn-primary align-bottom">Book Now</a>
+        </div>
+        {% endfor %}
+      </div>
+    {% endblock %}
+</body>
+</html>

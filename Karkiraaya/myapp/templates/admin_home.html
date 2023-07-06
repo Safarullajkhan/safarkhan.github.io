@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block home %}
+    {% endblock %}
+    {% block logs %}
+    <li><a href="/admina" class="btn btn-primary me-1 mt-2">Register Staff</a></li>
+    <li><a href="/addcar" class="btn btn-info me-1 mt-2">Add Car</a></li>
+    <li><a href="/showcar" class=" btn btn-danger mt-2">Edit Car Details</a></li>
+    <li><a href="/" class=" btn btn-success mt-2">Sign Out</a></li>
+    {% endblock %}
+    
+</body>
+</html>

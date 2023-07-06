@@ -1,0 +1,57 @@
+{% extends 'base1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block about %}
+{% endblock %}
+{% block logs %}
+{% if usr %}
+  <a href="/orders" class="btn" style="color: aliceblue;" >Order Details</a>
+  <a href="" class="btn" style="color: aliceblue;">{{ usr.first_name }}</a>
+  <a href="/logout" class="btn" style="color: aliceblue;" >Sign Out</a>
+{% else %}
+<a href="/log/{{ data.id }}" class="btn" style="color: aliceblue;">LogIn</a>
+<a href="/register" class="btn" style="color: aliceblue;">SignUp</a>
+{% endif %}
+{% endblock %}
+{% block index %}
+<body style="background-color: black; color: aliceblue;overflow-x: hidden;">
+    <div class="container">
+        <div>
+        <img src="{{ data.c_img.url }}" alt="" style="margin-left: 5%;margin-top: 35px;height: 500px;" >
+    </div>
+    <div style=" margin-top: 35px;height: 1000px;width: 500px; background-color: black; position: absolute; left: 57%;top: 0%;background-image: url(https://i.postimg.cc/C5kjTZzV/glowing-blue-neon-particles-3d-illustration-free-video.jpg);background-clip: text;-webkit-background-clip: text;color: transparent;"  >
+        <label for="" style="margin-top: 100px;margin-left: 30px;font-size: xxx-large;margin-top: 5%;">Car Name    :  {{data.c_name}}</label><br>
+        <label for="" style="margin-top: 10px;margin-left: 30px;font-size: larger;">Car Details :  {{data.c_details}}</label><br>
+        <label for="" style="margin-top: 10px;margin-left: 30px;font-size: x-large;">Car Status :
+            {% if data.c_status == 1 %}
+            Available
+            {% else %}
+            Not Available</label>
+            {% endif %}<br>
+            <label for="">Price : {{ data.c_price }}</label><br>
+            <label for="">PerDay kilometer Limit: 300KM(After Limit 5Rs For Each Kilometer )</label><br>
+            <a href="/booking/{{data.id}}" class="btn text-white" style="height: 40px; border-color: aliceblue;margin-top: 2%;"> Rent Now</a>
+    </div>
+    <div class="row">
+        {% for i in form %}
+        <div class="card-md m-5 " style="width: 18rem; border:none;color: aliceblue;">
+          <img src="{{ i.c_img.url }}" class="card-img-top p-1" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{i.c_name}}</h5>
+            <p class="card-text">{{i.c_details}}</p>
+            <p>Price : {{ i.c_price }}</p>
+          </div>
+          <a href="/booknow/{{i.id}}" class="btn btn-primary align-bottom">Book Now</a>
+        </div>
+        {% endfor %}
+      </div>
+</div>
+    {% endblock %}
+    
+</body>
+</html>

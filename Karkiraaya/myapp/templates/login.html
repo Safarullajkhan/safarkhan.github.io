@@ -1,0 +1,99 @@
+<!------ Include the above in your HEAD tag ---------->
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <!--Made with love by Mutiullah Samim -->
+        
+        <!--Bootsrap 4 CDN-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        
+        <!--Fontawesome CDN-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        
+        <!--Custom styles-->
+    <link rel="stylesheet" href="{% static 'css/login2.css' %}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body style=' background-image:url("{% static 'images/Clean.png' %}"); height="100%"'>
+	<div class="row">
+        <div class="col-sm-2 " style="background-color:rgba(0, 0, 0, 0.795); display: flex;flex-grow:1 ;">
+        <img src="{% static 'images/KarKiraaya.png' %}" height='50px' class="pull-left" alt="logo">
+      </div>
+      <div class="navbar-expand-lg justify-content-end col-sm-10" style="background-color:rgba(0, 0, 0, 0.795) ; display: flex;flex-grow:1 ;">
+        <div class="nav me-5 justify-content-end " >
+           
+              <a href="/" class="btn" style="color: aliceblue;" >Home</a>
+              <a href="/cars" class="btn" style="color: aliceblue;" >Rent A Car</a>
+                <a href="/register" class="btn" style="color: aliceblue;">SignUp</a>
+            </div>
+        </div>
+	</div>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				
+			</div>
+			<div class="card-body">
+				<form action="" method="post"> 
+					{% csrf_token %}
+					{% if dat %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" name="user" class="form-control"value="{{dat.usr}}">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" name="passw" data-type="password" class="form-control" value="{{dat.pss}}">
+					</div>
+					{% else %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" name="user" class="form-control" placeholder="Username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" name="passw" data-type="password" class="form-control" placeholder="Password">
+					</div>
+					{% endif %}
+					
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				{% if messages %}
+				{% for mssage in messages %}
+				<p class="text-danger">
+					<br>
+				{{ mssage }}
+				</p>
+				{% endfor %}
+				{% endif %}
+				<div class="d-flex justify-content-center links" >
+					<h5>
+					Don't have an account?<a href="/register">Sign Up</a>
+				</h5></div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
